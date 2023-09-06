@@ -20,12 +20,6 @@
   }
 }
 
-.nav {
-  @media (min-width: breakpoint.$desktop) {
-    order: 2;
-  }
-}
-
 .list {
   list-style: none;
   display: flex;
@@ -35,6 +29,10 @@
   padding: 0;
   margin: 0;
   font: font.$text-md-medium;
+
+  @media (min-width: breakpoint.$desktop) {
+    order: 2;
+  }
 }
 
 .logoContainer {
