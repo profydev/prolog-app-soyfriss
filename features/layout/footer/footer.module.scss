@@ -1,0 +1,61 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+@use "@styles/breakpoint";
+
+.footer {
+  padding: 1.5rem 2.25rem;
+  background-color: color.$gray-50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  @media (min-width: breakpoint.$desktop) {
+    padding: 0 space.$s8;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 3.75rem;
+  }
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  font: font.$text-md-medium;
+
+  @media (min-width: breakpoint.$desktop) {
+    order: 2;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: flex-end;
+
+  @media (min-width: breakpoint.$desktop) {
+    width: 10rem;
+    order: 3;
+  }
+}
+
+.versionContainer {
+  font: font.$text-md-regular;
+  color: color.$gray-400;
+
+  @media (min-width: breakpoint.$desktop) {
+    width: 10rem;
+    order: 1;
+  }
+}
+
+.anchor {
+  text-decoration: none;
+  color: color.$gray-500;
+}
