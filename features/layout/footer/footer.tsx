@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./footer.module.scss";
 
 const menuItems = [
@@ -8,7 +9,11 @@ const menuItems = [
   { text: "Community", href: "#" },
 ];
 
-export function Footer() {
+type FooterProps = {
+  appVersion: string;
+};
+
+export function Footer({ appVersion }: FooterProps) {
   return (
     <footer className={styles.footer}>
       <nav className={styles.nav}>
@@ -23,9 +28,9 @@ export function Footer() {
         </ul>
       </nav>
       <div className={styles.logoContainer}>
-        <img src="/icons/logo-small.svg" alt="logo" />
+        <Image src="/icons/logo-small.svg" alt="logo" width={23} height={33} />
       </div>
-      <div className={styles.versionContainer}>Version: 14.5.1</div>
+      <div className={styles.versionContainer}>Version: {appVersion}</div>
     </footer>
   );
 }

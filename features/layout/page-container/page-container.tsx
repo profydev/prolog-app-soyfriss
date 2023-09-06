@@ -11,6 +11,7 @@ type PageContainerProps = {
 
 export function PageContainer({ children, title, info }: PageContainerProps) {
   const documentTitle = `ProLog - ${title}`;
+  const appVersion = process.env.APP_VERSION || "";
 
   return (
     <div className={styles.container}>
@@ -23,13 +24,11 @@ export function PageContainer({ children, title, info }: PageContainerProps) {
       <SidebarNavigation />
       <div className={styles.mainContainer}>
         <main className={styles.main}>
-          <div className={styles.contentContainer}>
-            <h1 className={styles.title}>{title}</h1>
-            <div className={styles.info}>{info}</div>
-            {children}
-          </div>
+          <h1 className={styles.title}>{title}</h1>
+          <div className={styles.info}>{info}</div>
+          {children}
         </main>
-        <Footer />
+        <Footer appVersion={appVersion} />
       </div>
     </div>
   );
