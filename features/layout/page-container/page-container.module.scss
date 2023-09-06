@@ -5,13 +5,14 @@
 @use "@styles/misc";
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: color.$gray-900;
 
   @media (min-width: breakpoint.$desktop) {
     flex-direction: row;
+    min-height: auto;
   }
 }
 
@@ -23,18 +24,11 @@
 
 .main {
   flex: 1;
-}
-
-.contentContainer {
-  height: 100%;
-
-  // min-height: calc(100vh - 2 * space.$s8 - misc.$header-height);
   margin-top: misc.$header-height;
   padding: space.$s8 space.$s3;
   background: white;
 
   @media (min-width: breakpoint.$desktop) {
-    // min-height: calc(100vh - space.$s3 - 2 * space.$s8);
     margin-top: space.$s3;
     padding: space.$s8;
     border-top-left-radius: space.$s10;
