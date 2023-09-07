@@ -1,5 +1,6 @@
 @use "@styles/breakpoint";
 @use "@styles/space";
+@use "@styles/misc";
 
 .list {
   display: grid;
@@ -14,4 +15,11 @@
   @media (min-width: breakpoint.$desktop) {
     grid-template-columns: repeat(auto-fit, 400px);
   }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: misc.$loading-container-height;
 }

@@ -1,6 +1,22 @@
 import capitalize from "lodash/capitalize";
 import mockProjects from "../fixtures/projects.json";
 
+describe("Loading data", () => {
+  it("should show the loading spinner when loading data and then hide it", () => {
+    cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+      fixture: "projects.json",
+    }).as("getProjects");
+
+    cy.visit("http://localhost:3000/dashboard");
+
+    cy.get("img[alt='Loading']").should("be.visible");
+
+    cy.wait("@getProjects");
+
+    cy.get("img[alt='Loading']").should("not.exist");
+  });
+});
+
 describe("Project List", () => {
   beforeEach(() => {
     // setup request mock
