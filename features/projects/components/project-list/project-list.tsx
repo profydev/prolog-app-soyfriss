@@ -23,7 +23,7 @@ export function ProjectList() {
     return (
       <Alert
         message="There was a problem while loading the project data"
-        onButtonClick={() => router.reload()}
+        onRetry={() => router.reload()}
       />
     );
   }
