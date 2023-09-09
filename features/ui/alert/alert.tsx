@@ -8,7 +8,7 @@ type AlertProps = {
 
 export function Alert({ message, onRetry }: AlertProps) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-cy="alert">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={styles.icon}
