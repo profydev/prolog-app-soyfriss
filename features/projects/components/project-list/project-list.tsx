@@ -2,9 +2,12 @@ import { ProjectCard } from "../project-card";
 import { useGetProjects } from "../../api/use-get-projects";
 import styles from "./project-list.module.scss";
 import { Spinner } from "@features/ui";
+import { Alert } from "@features/ui";
+import { useRouter } from "next/router";
 
 export function ProjectList() {
   const { data, isLoading, isError, error } = useGetProjects();
+  const router = useRouter();
 
   if (isLoading) {
     return (
@@ -16,7 +19,13 @@ export function ProjectList() {
 
   if (isError) {
     console.error(error);
-    return <div>Error: {error.message}</div>;
+    // return <div>Error: {error.message}</div>;
+    return (
+      <Alert
+        message="There was a problem while loading the project data"
+        onRetry={() => router.reload()}
+      />
+    );
   }
 
   return (

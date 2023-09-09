@@ -17,6 +17,18 @@ describe("Loading data", () => {
   });
 });
 
+describe.only("Error screen", () => {
+  it("should show an error message when the request fails", () => {
+    cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+      forceNetworkError: true,
+    });
+
+    cy.visit("http://localhost:3000/dashboard");
+
+    cy.get('[data-cy="alert"]', { timeout: 10000 }).should("be.visible");
+  });
+});
+
 describe("Project List", () => {
   beforeEach(() => {
     // setup request mock
