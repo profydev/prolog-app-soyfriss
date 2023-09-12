@@ -20,6 +20,23 @@
 }
 
 .anchor {
+  cursor: pointer;
+
+  /* remove default button styles */
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  appearance: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
   display: flex;
   align-items: center;
   color: color.$gray-100;

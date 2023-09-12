@@ -1,5 +1,4 @@
 import styles from "./alert.module.scss";
-import { Button } from "../button";
 
 type AlertProps = {
   message: string;
@@ -16,7 +15,7 @@ export function Alert({ message, onRetry }: AlertProps) {
         alt="Alert icon"
       />
       <span className={styles.message}>{message}</span>
-      <Button className={styles.anchor} onClick={onRetry}>
+      <button className={styles.anchor} onClick={onRetry}>
         Try again
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -24,7 +23,7 @@ export function Alert({ message, onRetry }: AlertProps) {
           src="/icons/arrow-right.svg"
           alt="Right arrow icon"
         />
-      </Button>
+      </button>
     </div>
   );
 }
